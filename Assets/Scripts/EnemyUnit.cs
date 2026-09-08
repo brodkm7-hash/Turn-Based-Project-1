@@ -35,7 +35,6 @@ public class EnemyUnit : Unit
         {
             startAttack();
         }
-        Debug.Log("Attacking? " + isAttacking);
     }
 
     public Health getHealthValue()
@@ -84,7 +83,6 @@ public class EnemyUnit : Unit
             }
         }
         unitAnimator.Play(attackName);
-        Debug.Log("Crab used " + attackName);
         yield return new WaitForSeconds(1f);
         unitAnimator.SetTrigger("idle");
         if (selectedAttack == 0 || selectedAttack == 2)
@@ -103,11 +101,16 @@ public class EnemyUnit : Unit
     private void OnDisable()
     {
         Health.onTakeDamage -= Health_onTakeDamage;
+        Health.onDie -= enemyDeath;
     }
-    private void enemyDeath()
+    private void enemyDeath(float healthValue)
     {
+        if (health.getCurrentHealth() == healthValue)
+        {
+            return;
+        }
+        Debug.Log("Health value is " + healthValue + "Object name is " + this.gameObject.name);
         unitAnimator.SetTrigger("death");
         GameState.Instance.playerWon();
-        Health.onDie -= enemyDeath;
     }
 }

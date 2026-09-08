@@ -66,8 +66,12 @@ public class PlayerUnit : Unit, IDisposable
         transform.position = Vector2.MoveTowards(transform.position, enemyRef.transform.position, walk);
     }
 
-    private void onDeathLoss()
+    private void onDeathLoss(float healthValue)
     {
+        if (health.getCurrentHealth() == healthValue)
+        {
+            return;
+        }
         unitAnimator.SetTrigger("death");
         GameState.Instance.playerLost();
     }

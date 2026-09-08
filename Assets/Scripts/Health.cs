@@ -3,7 +3,8 @@ using UnityEngine;
 
 public class Health : MonoBehaviour
 {
-    public static event Action onTakeDamage, onDie;
+    public static event Action onTakeDamage;
+    public static event Action<float> onDie ;
     [SerializeField]
     private float MaxHealth = 10;
     [SerializeField]
@@ -21,12 +22,10 @@ public class Health : MonoBehaviour
             return;
         }
         onTakeDamage?.Invoke();
-        // quick check to see if dealdmg was called
-        Debug.Log("current health " + health);
         health = Mathf.Max(health - dmgDealt, 0);
         if (health <= 0)
         {
-            onDie?.Invoke();
+            onDie?.Invoke(health);
         }
     }
     public float getMaxHealth() => MaxHealth;
