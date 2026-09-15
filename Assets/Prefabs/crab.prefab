@@ -160,7 +160,7 @@ GameObject:
   - component: {fileID: 4499427643796484360}
   m_Layer: 7
   m_Name: crab
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -349,6 +349,7 @@ MonoBehaviour:
   - {fileID: 7400000, guid: 9e5aa9bfeee1d1143899c0bfa080db13, type: 2}
   rangedList:
   - {fileID: 7400000, guid: 1e68d3f8d7d82b34ea6cc4badba855a5, type: 2}
+  attackList: []
   percentage: 0
 --- !u!114 &350559601469606297
 MonoBehaviour:

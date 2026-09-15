@@ -103,13 +103,13 @@ public class EnemyUnit : Unit
         Health.onTakeDamage -= Health_onTakeDamage;
         Health.onDie -= enemyDeath;
     }
-    private void enemyDeath(float healthValue)
+    private void enemyDeath(GameObject unitHp)
     {
-        if (health.getCurrentHealth() == healthValue)
+        if (this.gameObject != unitHp)
         {
             return;
         }
-        Debug.Log("Health value is " + healthValue + "Object name is " + this.gameObject.name);
+        Debug.Log("Unit name is " + unitHp.name);
         unitAnimator.SetTrigger("death");
         GameState.Instance.playerWon();
     }

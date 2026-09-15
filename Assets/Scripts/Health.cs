@@ -4,7 +4,7 @@ using UnityEngine;
 public class Health : MonoBehaviour
 {
     public static event Action onTakeDamage;
-    public static event Action<float> onDie ;
+    public static event Action<GameObject> onDie ;
     [SerializeField]
     private float MaxHealth = 10;
     [SerializeField]
@@ -25,7 +25,15 @@ public class Health : MonoBehaviour
         health = Mathf.Max(health - dmgDealt, 0);
         if (health <= 0)
         {
-            onDie?.Invoke(health);
+            this.gameObject.GetComponent<Animator>().SetTrigger("death");
+            if (this.gameObject.tag == "Player")
+            {
+                GameState.Instance.playerLost();
+            }
+            if (this.gameObject.tag == "Enemy")
+            {
+                GameState.Instance.playerWon();
+            }
         }
     }
     public float getMaxHealth() => MaxHealth;

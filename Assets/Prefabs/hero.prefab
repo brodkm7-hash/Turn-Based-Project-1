@@ -269,7 +269,7 @@ GameObject:
   - component: {fileID: 3656056843049048601}
   m_Layer: 6
   m_Name: hero
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -452,6 +452,7 @@ MonoBehaviour:
   unitAnimator: {fileID: 0}
   enemyRef: {fileID: 0}
   startingPos: {fileID: 0}
+  percentage: 0
 --- !u!114 &3656056843049048601
 MonoBehaviour:
   m_ObjectHideFlags: 0
