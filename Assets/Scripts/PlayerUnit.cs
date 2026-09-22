@@ -12,6 +12,7 @@ public class PlayerUnit : Unit, IDisposable
     public Transform startingPos;
     public float percentage;
 
+    private bool attackCoroutineRunning;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     public override void Start()
     {
@@ -21,14 +22,26 @@ public class PlayerUnit : Unit, IDisposable
         Health.onDie += onDeathLoss;
     }
 
-    
+    public Health getHealthValue()
+    {
+        return health;
+    }
 
     IEnumerator attackEnemy()
     {
+        
         unitAnimator.SetTrigger("attack");
         yield return new WaitForSeconds(1f);
+
+        yield return new WaitUntil(() =>
+            !unitAnimator.IsInTransition(0) &&
+            unitAnimator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1f);
+        
         unitAnimator.SetTrigger("idle");
         transform.position = startingPos.position;
+        attackCoroutineRunning = false;
+        isAttacking = false;
+        GameState.Instance.endPlayerState();
     }
 
     public void dealDamage()
@@ -48,15 +61,14 @@ public class PlayerUnit : Unit, IDisposable
             enemyRef = GameState.Instance.EnemyPrefab;
         }
         float Distance = Vector2.Distance(transform.position, enemyRef.transform.position);
-        if (Distance > 0.5f && isAttacking == true)
+        if (Distance > 0.5f)
         {
             moveToTarget();
         }  
-        else
+        else if (!attackCoroutineRunning)
         {
+            attackCoroutineRunning = true;
             StartCoroutine(attackEnemy());
-            isAttacking = false;
-            GameState.Instance.endPlayerState();
         }
     }
 

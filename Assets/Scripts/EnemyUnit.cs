@@ -9,11 +9,10 @@ public class EnemyUnit : Unit
     public AnimationClip[] rangedList;
     public string[] attackList;
     public float percentage;
-
+    private bool attackingCoroutineRunning;
     private float speed = 10.0f;
     private Vector2 startingPos;
     private int selectedAttack;
-
     public override void Start()
     {
         base.Start();
@@ -61,8 +60,9 @@ public class EnemyUnit : Unit
 
     public void startAttack()
     {
-        if (GameState.Instance.PlayerPrefab != null)
+        if (GameState.Instance.PlayerPrefab != null && !attackingCoroutineRunning && health.getCurrentHealth() > 0)
         {
+            attackingCoroutineRunning = true;
             selectedAttack = Random.Range(0, 2);
             StartCoroutine(attackEnemy(attackList[selectedAttack]));
         }
@@ -92,12 +92,26 @@ public class EnemyUnit : Unit
                 float walk = speed * Time.deltaTime;
                 transform.position = Vector2.MoveTowards(transform.position, startingPos, walk);
             }
+            yield return null;
             transform.position = startingPos;
         }
         unitAnimator.SetTrigger("idle");
+        attackingCoroutineRunning = false;
         isAttacking = false;
         GameState.Instance.endEnemyState();
     }
+
+    public void dealDamage()
+    {
+        if (GameState.Instance.EnemyPrefab != null)
+        {
+            GameObject playerRef = GameState.Instance.PlayerPrefab;
+            playerRef.GetComponent<PlayerUnit>().getHealthValue().dealDmg(damageAmount);
+
+        }
+
+    }
+
     private void OnDisable()
     {
         Health.onTakeDamage -= Health_onTakeDamage;

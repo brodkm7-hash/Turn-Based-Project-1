@@ -28,7 +28,6 @@ public class GameState : MonoBehaviour
         }
     }
 
-
     IEnumerator Setup()
     {
         Player = PlayerPrefab.GetComponent<Unit>();
@@ -41,8 +40,7 @@ public class GameState : MonoBehaviour
 
     public void endPlayerState()
     {
-        state = turnState.ENEMYTURN;
-        EnemyPrefab.GetComponent<EnemyUnit>().isAttacking = true;
+        StartCoroutine(turnCooldown());
     }
 
     public void endEnemyState()
@@ -116,5 +114,12 @@ public class GameState : MonoBehaviour
     {
         //Debug.Log("Current State: " + state);
         //Debug.Log("Is player's turn? " + isPlayerTurn);
+    }
+
+    IEnumerator turnCooldown()
+    {
+        yield return new WaitForSeconds(2f);
+        state = turnState.ENEMYTURN;
+        EnemyPrefab.GetComponent<EnemyUnit>().isAttacking = true;
     }
 }
