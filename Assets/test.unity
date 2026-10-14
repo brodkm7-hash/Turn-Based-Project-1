@@ -2745,6 +2745,7 @@ MonoBehaviour:
   throwable: {fileID: 6886542449411305215, guid: 988832e743544d642800843373de480d, type: 3}
   launchPoint: {fileID: 672867216}
   projectileSpd: 5
+  attackSound: {fileID: 0}
 --- !u!1 &1840993220
 GameObject:
   m_ObjectHideFlags: 0

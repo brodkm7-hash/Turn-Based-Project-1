@@ -5,6 +5,7 @@ public class ProjectileLauncher : MonoBehaviour
     [SerializeField] GameObject throwable;
     [SerializeField] Transform launchPoint;
     [SerializeField] float projectileSpd;
+    private AudioSource attackSound;
 
 
     public void launchProjectile()
@@ -15,6 +16,7 @@ public class ProjectileLauncher : MonoBehaviour
         {
             rb.linearVelocity = launchPoint.right * projectileSpd;
         }
+        attackSound.Play();
     }
 
     private void Update()
