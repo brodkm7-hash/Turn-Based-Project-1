@@ -17,7 +17,7 @@ public class InventoryManager : MonoBehaviour
 
 /*
  potions to heal
-buff player
+buff player 1 turn
 debuff enemy
 throwables
 start all in same logic

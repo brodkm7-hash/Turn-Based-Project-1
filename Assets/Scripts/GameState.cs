@@ -15,6 +15,7 @@ public class GameState : MonoBehaviour
     public TextMeshProUGUI gameText;
     public turnState state;
     public bool isPlayerTurn;
+    //if stats added, speed stat with item to guaruntee going first
 
     private void Awake()
     {

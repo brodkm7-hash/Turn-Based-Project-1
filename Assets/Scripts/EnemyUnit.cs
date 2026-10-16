@@ -13,6 +13,7 @@ public class EnemyUnit : Unit
     private float speed = 10.0f;
     private Vector2 startingPos;
     private int selectedAttack;
+    [SerializeField] private AudioClip clawSound;
     public override void Start()
     {
         base.Start();
@@ -24,7 +25,10 @@ public class EnemyUnit : Unit
         Health.onDie += enemyDeath;
     }
 
-   
+    public void clawAttackSound()
+    {
+        attackSource.PlayOneShot(clawSound);
+    }
 
     void Update()
     {
@@ -107,7 +111,7 @@ public class EnemyUnit : Unit
         {
             GameObject playerRef = GameState.Instance.PlayerPrefab;
             playerRef.GetComponent<PlayerUnit>().getHealthValue().dealDmg(damageAmount);
-
+            
         }
 
     }
