@@ -3,9 +3,12 @@ using UnityEngine.UI;
 
 public abstract class InventorySlotItem : MonoBehaviour
 {
-    public string itemText;
+    [SerializeField] public string itemText;
+    [SerializeField] public string description;
     public int amount;
-    public Image itemImage;
+    [SerializeField] public Sprite itemImage;
+    public GameObject playerItem;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -19,14 +22,6 @@ public abstract class InventorySlotItem : MonoBehaviour
     }
 
     public abstract void use();
-}
-
-public class HealthPotion : InventorySlotItem
-{
-    public override void use()
-    {
-        throw new System.NotImplementedException();
-    }
 }
 
 /*

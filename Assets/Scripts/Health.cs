@@ -36,6 +36,21 @@ public class Health : MonoBehaviour
             }
         }
     }
+    public void healHp(float hpHealed)
+    {
+        if (health > 0 && health < MaxHealth)
+        {
+            health += hpHealed;
+            if (health >= MaxHealth)
+            {
+                health = MaxHealth;
+            }
+        }
+        else
+        {
+            return;
+        }
+    }
     public float getMaxHealth() => MaxHealth;
     public float getCurrentHealth() => health;
 

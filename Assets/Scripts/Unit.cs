@@ -9,6 +9,7 @@ public class Unit : MonoBehaviour
     [SerializeField] public Image healthbar_img;
     public string unitName;
     public int damageAmount;
+    public int healAmount;
     public bool isAttacking;
     public Animator unitAnimator;
     public AudioSource attackSource;
