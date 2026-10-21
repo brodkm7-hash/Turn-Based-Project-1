@@ -30,3 +30,6 @@ public abstract class InventorySlotItem : MonoBehaviour
  use - function called when pressing button
  image - img component
  */
+
+//HW - find where to update count of an item, check if you have eough to use
+//both can be checked in same place
