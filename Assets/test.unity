@@ -152,6 +152,8 @@ MonoBehaviour:
   description: Heals 1-6 HP
   amount: 0
   itemImage: {fileID: 21300000, guid: 0a40244ceeb93f5488ed884983566bb3, type: 3}
+  srcImg: {fileID: 0}
+  displayText: {fileID: 0}
   playerItem: {fileID: 0}
   healAmt: 0
 --- !u!224 &7946866
@@ -2160,6 +2162,31 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1317057655}
   m_CullTransparentMesh: 1
+--- !u!1 &1334993373 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1705047166039403505, guid: 14ba5fc4e96bb7c41a0580c512e6f859, type: 3}
+  m_PrefabInstance: {fileID: 1884982526}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1334993374
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1334993373}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 131455c12eab8e04b83b99573a6f3ac5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::HealPotion
+  itemText: 
+  description: 
+  amount: 0
+  itemImage: {fileID: 21300000, guid: 0a40244ceeb93f5488ed884983566bb3, type: 3}
+  srcImg: {fileID: 0}
+  displayText: {fileID: 0}
+  playerItem: {fileID: 0}
+  healAmt: 0
 --- !u!1 &1374409482
 GameObject:
   m_ObjectHideFlags: 0
@@ -2920,6 +2947,107 @@ MonoBehaviour:
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
   m_ReverseArrangement: 0
+--- !u!1001 &1884982526
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1093279826911936161, guid: 14ba5fc4e96bb7c41a0580c512e6f859, type: 3}
+      propertyPath: m_Pivot.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1093279826911936161, guid: 14ba5fc4e96bb7c41a0580c512e6f859, type: 3}
+      propertyPath: m_Pivot.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1093279826911936161, guid: 14ba5fc4e96bb7c41a0580c512e6f859, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1093279826911936161, guid: 14ba5fc4e96bb7c41a0580c512e6f859, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1093279826911936161, guid: 14ba5fc4e96bb7c41a0580c512e6f859, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1093279826911936161, guid: 14ba5fc4e96bb7c41a0580c512e6f859, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1093279826911936161, guid: 14ba5fc4e96bb7c41a0580c512e6f859, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1093279826911936161, guid: 14ba5fc4e96bb7c41a0580c512e6f859, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 1093279826911936161, guid: 14ba5fc4e96bb7c41a0580c512e6f859, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1093279826911936161, guid: 14ba5fc4e96bb7c41a0580c512e6f859, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1093279826911936161, guid: 14ba5fc4e96bb7c41a0580c512e6f859, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1093279826911936161, guid: 14ba5fc4e96bb7c41a0580c512e6f859, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1093279826911936161, guid: 14ba5fc4e96bb7c41a0580c512e6f859, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1093279826911936161, guid: 14ba5fc4e96bb7c41a0580c512e6f859, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1093279826911936161, guid: 14ba5fc4e96bb7c41a0580c512e6f859, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1093279826911936161, guid: 14ba5fc4e96bb7c41a0580c512e6f859, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 980.2541
+      objectReference: {fileID: 0}
+    - target: {fileID: 1093279826911936161, guid: 14ba5fc4e96bb7c41a0580c512e6f859, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 538.03876
+      objectReference: {fileID: 0}
+    - target: {fileID: 1093279826911936161, guid: 14ba5fc4e96bb7c41a0580c512e6f859, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1093279826911936161, guid: 14ba5fc4e96bb7c41a0580c512e6f859, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1093279826911936161, guid: 14ba5fc4e96bb7c41a0580c512e6f859, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1705047166039403505, guid: 14ba5fc4e96bb7c41a0580c512e6f859, type: 3}
+      propertyPath: m_Name
+      value: InventoryItem (1)
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: -3519433801273172496, guid: 14ba5fc4e96bb7c41a0580c512e6f859, type: 3}
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 1705047166039403505, guid: 14ba5fc4e96bb7c41a0580c512e6f859, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1334993374}
+  m_SourcePrefab: {fileID: 100100000, guid: 14ba5fc4e96bb7c41a0580c512e6f859, type: 3}
 --- !u!1 &1971139693
 GameObject:
   m_ObjectHideFlags: 0
@@ -3367,3 +3495,4 @@ SceneRoots:
   - {fileID: 7946866}
   - {fileID: 1257941834}
   - {fileID: 1632080440721123262}
+  - {fileID: 1884982526}

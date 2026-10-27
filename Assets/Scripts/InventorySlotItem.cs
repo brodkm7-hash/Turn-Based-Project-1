@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -7,12 +8,14 @@ public abstract class InventorySlotItem : MonoBehaviour
     [SerializeField] public string description;
     public int amount;
     [SerializeField] public Sprite itemImage;
+    [SerializeField] public Image srcImg;
+    [SerializeField] public TextMeshProUGUI displayText;
     public GameObject playerItem;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-
+        
     }
 
     // Update is called once per frame
