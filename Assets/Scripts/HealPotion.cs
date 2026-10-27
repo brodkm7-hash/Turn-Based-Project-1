@@ -17,9 +17,14 @@ public class HealPotion : InventorySlotItem
 
     public override void use()
         {
-            playerItem = GameState.Instance.PlayerPrefab;
-            healAmt = Random.Range(1, 6);
-            playerItem.GetComponent<PlayerUnit>().getHealthValue().healHp(healAmt);
+            if (checkEnough())
+            {
+                playerItem = GameState.Instance.PlayerPrefab;
+                healAmt = Random.Range(1, 6);
+                playerItem.GetComponent<PlayerUnit>().getHealthValue().healHp(healAmt);
+                useUp();
+            }
+            ;
         }
 }
 

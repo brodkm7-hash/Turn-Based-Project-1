@@ -22,6 +22,25 @@ public abstract class InventorySlotItem : MonoBehaviour
     }
 
     public abstract void use();
+
+    public void useUp()
+    {
+        if (amount > 0)
+        {
+            amount--;
+        }  
+    }
+    public bool checkEnough()
+    {
+        if (amount > 0)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
 }
 
 /*
@@ -30,6 +49,3 @@ public abstract class InventorySlotItem : MonoBehaviour
  use - function called when pressing button
  image - img component
  */
-
-//HW - find where to update count of an item, check if you have eough to use
-//both can be checked in same place
