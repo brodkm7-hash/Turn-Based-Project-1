@@ -52,3 +52,11 @@ public abstract class InventorySlotItem : MonoBehaviour
  use - function called when pressing button
  image - img component
  */
+
+/*
+atk boost
+track turn
+next atk boosted
+
+reference player dmg amt then reset
+ */
