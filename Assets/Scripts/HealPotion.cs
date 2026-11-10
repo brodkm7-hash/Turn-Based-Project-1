@@ -4,8 +4,6 @@ public class HealPotion : InventorySlotItem
 {
     public int healAmt;
 
-    //hw - new class, damage buff potion, use get/set to ref. player unit & buff damage amt
-
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
