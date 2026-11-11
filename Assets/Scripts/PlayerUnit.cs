@@ -1,7 +1,8 @@
-using UnityEngine;
-using System.Collections;
 using System;
-
+using System.Collections;
+using UnityEngine;
+using static UnityEditor.Experimental.GraphView.GraphView;
+//isBuffActive/isDmgModified on player, dmgamt = dmgamt + percent, percent = dmg * .whatever#, in start basedmg=dmgamt
 public class PlayerUnit : Unit, IDisposable
 {
     public GameObject enemyRef;
@@ -11,6 +12,8 @@ public class PlayerUnit : Unit, IDisposable
     private Camera cam;
     public Transform startingPos;
     public float percentage;
+    public bool isDmgModified = false;
+    public double BuffDamage;
 
     private bool attackCoroutineRunning;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -48,9 +51,18 @@ public class PlayerUnit : Unit, IDisposable
     {
         if (GameState.Instance.EnemyPrefab != null)
         {
-            enemyRef = GameState.Instance.EnemyPrefab;
-            enemyRef.GetComponent<EnemyUnit>().getHealthValue().dealDmg(damageAmount); 
-            
+            if (isDmgModified == true)
+            {
+                BuffDamage = GetComponent<BuffPotion>().buffAmt;
+                enemyRef = GameState.Instance.EnemyPrefab;
+                enemyRef.GetComponent<EnemyUnit>().getHealthValue().dealDmg(BuffDamage);
+                isDmgModified = false;
+            }
+            else
+            {
+                enemyRef = GameState.Instance.EnemyPrefab;
+                enemyRef.GetComponent<EnemyUnit>().getHealthValue().dealDmg(damageAmount);
+            } 
         }
 
     }

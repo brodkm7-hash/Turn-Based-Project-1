@@ -1,3 +1,4 @@
+using JetBrains.Annotations;
 using UnityEngine;
 
 public class BuffPotion : InventorySlotItem
@@ -16,11 +17,20 @@ public class BuffPotion : InventorySlotItem
         srcImg.sprite = itemImage;
     }
 
+    public int CalculatePercent(int dmg)
+    {
+        public int percent = (int)System.MathF.Ceiling(dmg * 0.2);
+        return percent;
+    }
+
     public override void use()
     {
         if (checkEnough() == true)
         {
-            
+            CalculatePercent(dmgAmt);
+            buffAmt = (int)System.MathF.Ceiling(dmgAmt + percent);
+            playerU.isDmgModified = true;
+            useUp();
         }
         else
         {
@@ -28,3 +38,4 @@ public class BuffPotion : InventorySlotItem
         }
     }
 }
+
