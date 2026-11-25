@@ -43,4 +43,8 @@ public class BuffPotion : InventorySlotItem
         }
     }
 }
+/**
+ * plan to do enemy weakness potion for future classes
+ * start w/making class
+ * /
 
