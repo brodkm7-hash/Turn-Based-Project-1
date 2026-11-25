@@ -13,7 +13,7 @@ public class PlayerUnit : Unit, IDisposable
     public Transform startingPos;
     public float percentage;
     public bool isDmgModified = false;
-    public double BuffDamage;
+    public int BuffDamage;
 
     private bool attackCoroutineRunning;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -53,7 +53,6 @@ public class PlayerUnit : Unit, IDisposable
         {
             if (isDmgModified == true)
             {
-                BuffDamage = GetComponent<BuffPotion>().buffAmt;
                 enemyRef = GameState.Instance.EnemyPrefab;
                 enemyRef.GetComponent<EnemyUnit>().getHealthValue().dealDmg(BuffDamage);
                 isDmgModified = false;
@@ -62,6 +61,7 @@ public class PlayerUnit : Unit, IDisposable
             {
                 enemyRef = GameState.Instance.EnemyPrefab;
                 enemyRef.GetComponent<EnemyUnit>().getHealthValue().dealDmg(damageAmount);
+                BuffDamage = 0;
             } 
         }
 
